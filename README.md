@@ -1,21 +1,28 @@
 Class for Arbitrary Precision Mathematics
 =========================================
 
+Parameters
+----------
+* Pre Decimals
+* Decimals
+* Fill Character for Pre Decimals
+* Comma
+* Seperator
+
 Functions
 ---------
-
-* format
-* add
-* sub
-* mul
-* div
-* mod
-* exp
-* log
-* root
-* sqrt
-* cmp
-* abs
+* Value Format
+* Addition
+* Subtraction
+* Multiplication
+* Division
+* Modulo
+* Exponentiation with Base and Exponent
+* Logarithm with Base and Antilogarithm
+* n<sup>th</sup> Root with Degree and Radicand
+* Square Root
+* Compare
+* Absolute
 
 Credits
 -------
