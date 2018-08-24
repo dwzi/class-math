@@ -36,6 +36,7 @@ Tests
 -----
 
 $ ./vendor/bin/phpunit --bootstrap vendor/autoload.php  tests/MathTest
+$ ./vendor/bin/phpunit --bootstrap vendor/autoload.php  tests/MathBCMathTest
 
 Credits
 -------
