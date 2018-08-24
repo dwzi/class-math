@@ -3,8 +3,9 @@
 use DWZI\Library;
 
 require __DIR__ . '/../src/Math.class.php';
+require __DIR__ . '/../src/Math.BCMath.class.php';
 
-$Math = new DWZI\Library\Math();
+$Math = new DWZI\Library\BCMath();
 $Math
   ->setPreDecimals(0)
   ->setDecimals(20)
@@ -14,9 +15,9 @@ $Math
 
 echo '<pre>';
 
-echo '17498.124 = ' . $Math->format(17498.124, 10, 5, '-', ',', ' ') . PHP_EOL;
+echo '17498,124 = ' . $Math->format("17498,124", 10, 5, '-', ',', ' ') . PHP_EOL;
 echo '1 + 2 = ' . $Math->add(1, 2) . PHP_EOL;
-echo '0.81129124431343412312 + 0.11125912423408212394 = ' . $Math->add(0.81129124431343412312, 0.11125912423408212394) . PHP_EOL;
+echo '0.81129124431343412312 + 0.11125912423408212394 = ' . $Math->add('0.81129124431343412312', '0.11125912423408212394') . PHP_EOL;
 
 $Math->setDecimals(2);
 

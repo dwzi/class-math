@@ -8,7 +8,6 @@ class Math {
   const CMP_LEFT_GREATER = 1;
   const CMP_RIGHT_GREATER = -1;
 
-
   private $PreDecimals = 0;
   private $Decimals = 2;
   private $FillPreDecimals = ' ';
@@ -55,7 +54,7 @@ class Math {
    * @param int $PreDecimals
    * @return int
    */
-  private function checkPreDecimals(int $PreDecimals) {
+  protected function checkPreDecimals(int $PreDecimals) {
 
     if (!(
       is_numeric($PreDecimals)
@@ -102,7 +101,7 @@ class Math {
    * @param int $Decimals
    * @return int
    */
-  private function checkDecimals($Decimals) {
+  protected function checkDecimals($Decimals) {
 
     if (!(
       is_numeric($Decimals)
@@ -463,6 +462,5 @@ class Math {
 
     return self::format(floor($value * $factor) / $factor);
   }
-
 
 }
