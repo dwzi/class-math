@@ -402,4 +402,67 @@ class Math {
     }
   }
 
+  /**
+   * round
+   *
+   * function for rounding values
+   *
+   * @param int $value
+   * @param int $Decimals (optional)
+   * @return string
+   */
+  public function round($value, $Decimals = null) {
+
+    $Decimals = $Decimals === null ? self::getDecimals() : self::checkDecimals($Decimals);
+
+    return self::format(round($value, $Decimals));
+  }
+
+  /**
+   * up
+   *
+   * function for rounding up values
+   *
+   * @param int $value
+   * @param int $Decimals (optional)
+   * @return string
+   */
+  public function up($value, $Decimals = null) {
+
+    $Decimals = $Decimals === null ? self::getDecimals() : self::checkDecimals($Decimals);
+
+    if ($Decimals == 0) {
+
+      return self::format(ceil($value));
+    }
+
+    $factor = pow(10, $Decimals);
+
+    return self::format(ceil($value * $factor) / $factor);
+  }
+
+  /**
+   * down
+   *
+   * function for rounding down values
+   *
+   * @param int $value
+   * @param int $Decimals (optional)
+   * @return string
+   */
+  public function down($value, $Decimals = null) {
+
+    $Decimals = $Decimals === null ? self::getDecimals() : self::checkDecimals($Decimals);
+
+    if ($Decimals == 0) {
+
+      return self::format(floor($value));
+    }
+
+    $factor = pow(10, $Decimals);
+
+    return self::format(floor($value * $factor) / $factor);
+  }
+
+
 }

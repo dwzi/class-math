@@ -23,6 +23,9 @@ Functions
 * Square Root
 * Compare
 * Absolute
+* Round
+* Round Up
+* Round Down
 
 Credits
 -------

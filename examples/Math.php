@@ -34,6 +34,12 @@ echo '2 = 2 = ' . ($Math->cmp(2, 2) == $Math::CMP_EQUAL ? 'yes' : 'no') . PHP_EO
 echo '3 > 2 = ' . ($Math->cmp(3, 2) == $Math::CMP_LEFT_GREATER ? 'yes' : 'no') . PHP_EOL;
 echo 'abs -4 = ' . $Math->abs(-4) . PHP_EOL;
 
+echo 'round 2.515 = ' . $Math->round(2.515, 0) . PHP_EOL;
+echo 'round up 12.515 (-1) = ' . $Math->up(12.515, -1) . PHP_EOL;
+echo 'round up 16.515 (2) = ' . $Math->up(16.515, 2) . PHP_EOL;
+echo 'round down 12.515 (-1) = ' . $Math->down(12.515, -1) . PHP_EOL;
+echo 'round down 16.515 (2) = ' . $Math->down(16.515, 2) . PHP_EOL;
+
 echo '</pre>';
 
 ?>
