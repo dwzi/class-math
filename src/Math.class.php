@@ -9,191 +9,383 @@ class Math {
   const CMP_RIGHT_GREATER = -1;
 
 
-  var $predecimals = 0;
-  var $fillpredecimals = ' ';
-  var $decimals = 2;
+  private $PreDecimals = 0;
+  private $Decimals = 2;
+  private $FillPreDecimals = ' ';
 
-  var $comma = '.';
-  var $seperator = ',';
+  private $Comma = '.';
+  private $Seperator = ',';
 
-
-  function __construct($predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
-
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    self::setPreDecimals($predecimals);
-    self::setDecimals($decimals);
-    self::setFillPreDecimals($fillpredecimals);
-    self::setComma($comma);
-    self::setSeperator($seperator);
+  /**
+   * constructor
+   *
+   * @param none
+   * @return none
+   */
+  function __construct() {
   }
 
+  /**
+   * destructor
+   *
+   * @param none
+   * @return none
+   */
   function __destruct() {
   }
 
+  /**
+   * get PreDecimals
+   *
+   * function for getting the private var PreDecimals
+   *
+   * @param none
+   * @return int
+   */
+  public function getPreDecimals() {
 
-  function getPreDecimals() {
-
-    return $this->predecimals;
+    return $this->PreDecimals;
   }
 
-  function setPreDecimals($predecimals) {
+  /**
+   * check PreDecimals
+   *
+   * function for checking the value of the private var PreDecimals
+   *
+   * @param int $PreDecimals
+   * @return int
+   */
+  private function checkPreDecimals(int $PreDecimals) {
 
-    $this->predecimals = $predecimals;
-  }
-
-  function getFillPreDecimals() {
-
-    return $this->fillpredecimals;
-  }
-
-  function setFillPreDecimals($fillpredecimals) {
-
-    $this->fillpredecimals = $fillpredecimals;
-  }
-
-  function getDecimals() {
-
-    return $this->decimals;
-  }
-
-  function setDecimals($decimals) {
-
-    $this->decimals = $decimals;
-  }
-
-  function getComma() {
-
-    return $this->comma;
-  }
-
-  function setComma($comma) {
-
-    $this->comma = $comma;
-  }
-
-  function getSeperator() {
-
-    return $this->seperator;
-  }
-
-  function setSeperator($seperator) {
-
-    $this->seperator = $seperator;
-  }
-
-
-  private function checkParameters(&$predecimals = null, &$decimals = null, &$fillpredecimals = null, &$comma = null, &$seperator = null) {
-
-    if ($predecimals === null || !is_numeric($predecimals)) {
-
-      $predecimals = self::getPreDecimals();
+    if (!(
+      is_numeric($PreDecimals)
+    )) {
+      throw new \InvalidArgumentException('PreDecimals has to be an integer');
     }
 
-    if ($decimals === null || !is_numeric($decimals)) {
-
-      $decimals = self::getDecimals();
-    }
-
-    if ($fillpredecimals === null) {
-
-      $fillpredecimals = self::getFillPreDecimals();
-    }
-
-    if ($comma === null) {
-
-      $comma = self::getComma();
-    }
-
-    if ($seperator === null) {
-
-      $seperator = self::getSeperator();
-    }
-
-    return null;
+    return $PreDecimals;
   }
 
-  public function format($value, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * set PreDecimals
+   *
+   * function for setting the value of the private var PreDecimals
+   *
+   * @param int $PreDecimals
+   * @return class
+   */
+  public function setPreDecimals($PreDecimals) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    $this->PreDecimals = self::checkPreDecimals($PreDecimals);
 
-    $str = number_format($value, $decimals, $comma, $seperator);
-    $str = str_pad($str, $predecimals + substr_count($str, $seperator) + substr_count($str, $comma) + $decimals, $fillpredecimals, STR_PAD_LEFT);
+    return $this;
+  }
+
+  /**
+   * get Decimals
+   *
+   * function for getting the private var Decimals
+   *
+   * @param none
+   * @return return int
+   */
+  public function getDecimals() {
+
+    return $this->Decimals;
+  }
+
+  /**
+   * check Decimals
+   *
+   * function for checking the value of the private var Decimals
+   *
+   * @param int $Decimals
+   * @return int
+   */
+  private function checkDecimals($Decimals) {
+
+    if (!(
+      is_numeric($Decimals)
+    )) {
+      throw new \InvalidArgumentException('Decimals has to be an integer');
+    }
+
+    return $Decimals;
+  }
+
+  /**
+   * set Decimals
+   *
+   * function for setting the value of the private var Decimals
+   *
+   * @param int $Decimals
+   * @return class
+   */
+  public function setDecimals($Decimals) {
+
+    $this->Decimals = self::checkDecimals($Decimals);
+
+    return $this;
+  }
+
+  /**
+   * get FillPreDecimals
+   *
+   * function for getting the private var FillPreDecimals
+   *
+   * @param none
+   * @return string
+   */
+  public function getFillPreDecimals() {
+
+    return $this->FillPreDecimals;
+  }
+
+  /**
+   * set FillPreDecimals
+   *
+   * function for setting the value of the private var FillPreDecimals
+   *
+   * @param int $FillPreDecimals
+   * @return class
+   */
+  public function setFillPreDecimals($FillPreDecimals) {
+
+    $this->FillPreDecimals = $FillPreDecimals;
+
+    return $this;
+  }
+
+  /**
+   * get Comma
+   *
+   * function for getting the private var Comma
+   *
+   * @param none
+   * @return string
+   */
+  public function getComma() {
+
+    return $this->Comma;
+  }
+
+  /**
+   * set Comma
+   *
+   * function for setting the value of the private var Comma
+   *
+   * @param int $Comma
+   * @return class
+   */
+  public function setComma($Comma) {
+
+    $this->Comma = $Comma;
+
+    return $this;
+  }
+
+  /**
+   * get Seperator
+   *
+   * function for getting the private var Seperator
+   *
+   * @param none
+   * @return string
+   */
+  public function getSeperator() {
+
+    return $this->Seperator;
+  }
+
+  /**
+   * set Seperator
+   *
+   * function for setting the value of the private var Seperator
+   *
+   * @param int $Seperator
+   * @return class
+   */
+  public function setSeperator($Seperator) {
+
+    $this->Seperator = $Seperator;
+
+    return $this;
+  }
+
+  /**
+   * format
+   *
+   * function for formatting a specific value with optional parameters
+   *
+   * @param int $value
+   * @param int $PreDecimals (optional)
+   * @param null|int $Decimals (optional)
+   * @param null|string $FillPreDecimals (optional)
+   * @param null|string $Comma (optional)
+   * @param null|string $Seperator (optional)
+   * @return string
+   */
+  public function format($value, $PreDecimals = null, $Decimals = null, $FillPreDecimals = null, $Comma = null, $Seperator = null) {
+
+    $PreDecimals = $PreDecimals === null ? self::getPreDecimals() : self::checkPreDecimals($PreDecimals);
+    $Decimals = $Decimals === null ? self::getDecimals() : self::checkDecimals($Decimals);
+    $FillPreDecimals = $FillPreDecimals === null ? self::getFillPreDecimals() : $FillPreDecimals;
+    $Comma = $Comma === null ? self::getComma() : $Comma;
+    $Seperator = $Seperator === null ? self::getSeperator() : $Seperator;
+
+    $str = number_format($value, $Decimals, $Comma, $Seperator);
+    $str = str_pad($str, $PreDecimals + substr_count($str, $Seperator) + substr_count($str, $Comma) + $Decimals, $FillPreDecimals, STR_PAD_LEFT);
+
     return $str;
   }
 
+  /**
+   * add
+   *
+   * function for adding two values
+   *
+   * @param int $summand1
+   * @param int $summand2
+   * @return string
+   */
+  public function add($summand1, $summand2) {
 
-  public function add($summand1, $summand2, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
-
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format($summand1 + $summand2, $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format($summand1 + $summand2);
   }
 
-  public function sub($minuend, $subtrahend, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * sub
+   *
+   * function for substracting two values
+   *
+   * @param int $minuend
+   * @param int $subtrahend
+   * @return string
+   */
+  public function sub($minuend, $subtrahend) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format($minuend - $subtrahend, $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format($minuend - $subtrahend);
   }
 
-  public function mul($multiplier, $multiplicant, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * mul
+   *
+   * function for multipling two values
+   *
+   * @param int $multiplier
+   * @param int $multiplicant
+   * @return string
+   */
+  public function mul($multiplier, $multiplicant) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format($multiplier * $multiplicant, $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format($multiplier * $multiplicant);
   }
 
-  public function div($dividend, $divisor, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * div
+   *
+   * function for dividing two values
+   *
+   * @param int $dividend
+   * @param int $divisor
+   * @return string
+   */
+  public function div($dividend, $divisor) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format($dividend / $divisor, $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format($dividend / $divisor);
   }
 
-  public function mod($dividend, $divisor, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * mod
+   *
+   * function for finding the modulo
+   *
+   * @param int $dividend
+   * @param int $divisor
+   * @return string
+   */
+  public function mod($dividend, $divisor) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format($dividend % $divisor, $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format($dividend % $divisor);
   }
 
-  public function exp($base, $exponent, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * exp
+   *
+   * function for exponential func
+   *
+   * @param int $base
+   * @param int $exponent
+   * @return string
+   */
+  public function exp($base, $exponent) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format(pow($base, $exponent), $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format(pow($base, $exponent));
   }
 
-  public function root($radicand, $degree, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * root
+   *
+   * function for root func
+   *
+   * @param int $radicand
+   * @param int $degree
+   * @return string
+   */
+  public function root($radicand, $degree) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format(pow($radicand, 1 / $degree), $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format(pow($radicand, 1 / $degree));
   }
 
-  public function sqrt($radicand, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * sqrt
+   *
+   * function for square root func
+   *
+   * @param int $radicand
+   * @return string
+   */
+  public function sqrt($radicand) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format(pow($radicand, 1 / 2), $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format(pow($radicand, 1 / 2));
   }
 
-  public function log($antilogarithm, $base, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * log
+   *
+   * function for logarithm func
+   *
+   * @param int $antilogarithm
+   * @param int $base
+   * @return string
+   */
+  public function log($antilogarithm, $base) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format(log($antilogarithm, $base), $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format(log($antilogarithm, $base));
   }
 
-  public function abs($value, $predecimals = null, $decimals = null, $fillpredecimals = null, $comma = null, $seperator = null) {
+  /**
+   * abs
+   *
+   * function for absolute value
+   *
+   * @param int $value
+   * @return string
+   */
+  public function abs($value) {
 
-    self::checkParameters($predecimals, $decimals, $fillpredecimals, $comma, $seperator);
-
-    return self::format(abs($value), $predecimals, $decimals, $fillpredecimals, $comma, $seperator);
+    return self::format(abs($value));
   }
 
-
+  /**
+   * cmp
+   *
+   * function for comparing two values
+   *
+   * @param int $left
+   * @param int $right
+   * @return int
+   */
   public function cmp($left, $right) {
 
     if ($left === $right) {
