@@ -1,0 +1,35 @@
+{
+  "name": "dwzi/class-math",
+  "description": "Class for Arbitrary Precision Mathematics",
+  "type": "library",
+  "keywords": [
+    "dwzi",
+    "arbitrary",
+    "precision",
+    "mathematics"
+  ],
+  "homepage": "https://github.com/dwzi/class-math",
+  "license": "BSD-3-Clause",
+  "authors": [
+      {
+          "name": "DWZI GmbH",
+          "email": "tech@dwzi.at",
+          "homepage": "https://dwzi.at",
+          "role": "Developer"
+      }
+  ],
+  "require": {
+    "php": "^7"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "suggest": {
+      "ext-bcmath": "Needed for MathBCMath.php"
+  },
+  "autoload": {
+    "classmap": [
+        "src/"
+    ]
+  }
+}

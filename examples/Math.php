@@ -2,7 +2,7 @@
 
 use DWZI\Library;
 
-require __DIR__ . '/../src/Math.class.php';
+require __DIR__ . '/../src/Math.php';
 
 $Math = new DWZI\Library\Math();
 $Math

@@ -4,7 +4,7 @@ Class for Arbitrary Precision Mathematics
 Classes
 -------
 * Math (PHP functions)
-* BCMath (PHP bcmath extension)
+* MathBCMath (PHP bcmath extension)
 
 Parameters
 ----------
@@ -31,6 +31,11 @@ Functions
 * Round
 * Round Up
 * Round Down
+
+Tests
+-----
+
+$ ./vendor/bin/phpunit --bootstrap vendor/autoload.php  tests/MathTest
 
 Credits
 -------
