@@ -1,6 +1,11 @@
 Class for Arbitrary Precision Mathematics
 =========================================
 
+Classes
+-------
+* Math (PHP functions)
+* BCMath (PHP bcmath extension)
+
 Parameters
 ----------
 * Pre Decimals
